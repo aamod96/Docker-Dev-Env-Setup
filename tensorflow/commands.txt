@@ -1,0 +1,20 @@
+For changing docker default directory in Windows 11 -
+
+wsl --shutdown
+wsl --export docker-desktop-data docker-desktop-data.tar
+wsl --unregister docker-desktop-data
+wsl --import docker-desktop-data E:\Docker docker-desktop-data.tar --version 2
+
+
+
+1. For building an image from Dockerfile -
+    docker build -t tf-env:latest .
+
+2. Running an image with volume and gpus -
+    docker run --gpus all -v source:destination -d tf-env:latest
+    
+3. Run these commands for opencv - 
+    apt-get install libgl1 -y --fix-missing
+    apt-get install ffmpeg -y --fix-missing
+    apt-get libsm6 -y --fix-missing
+    apt-get libxext6 -y --fix-missing
